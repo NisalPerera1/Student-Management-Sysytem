@@ -1,0 +1,36 @@
+
+.contact-header{
+  color: rgb(199, 128, 128);
+ 
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.contactfullpage{
+ 
+  opacity: 0.6;
+  background-size: 100%;
+  size: 200%;
+  width: 100%;
+  height: 200%;
+  
+}
+
+
+.text-center{
+  color: rgb(209, 223, 223);
+}
+
+
+
+.para{
+  color: rgb(171, 171, 143);
+}
+body{
+  background-size: 100%;
+  background-position: center;
+  height: 200%;
+}
