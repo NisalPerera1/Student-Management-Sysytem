@@ -9,7 +9,7 @@ function Contact() {
            <div class="contact-header">
                  <h1 align="center">Contact Me</h1>
            </div>
-<div className="form" align="center">
+<div className="form" class="container">
 <form>
 
 <div class="form" id="form">

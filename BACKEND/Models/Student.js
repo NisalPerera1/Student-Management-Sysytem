@@ -7,6 +7,10 @@ const studentSchema = new schema({
         type : String,
         required:true 
     },
+    address:{
+        type : String,
+        required:true 
+    },
     age:{
         type : Number,
         required:true 

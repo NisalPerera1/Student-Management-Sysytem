@@ -1,6 +1,7 @@
 import React from "react"; 
 import pic2 from './header.png';
 import toggleModal from "./students"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
  export default function Home(){
  return<div>
@@ -15,7 +16,7 @@ import toggleModal from "./students"
                 <div class="card-body">
                 <h5 class="card-title">New User Registration</h5>
                 <p class="card-text">follow below link</p>
-                <a href="#" class="btn btn-primary" onClick={toggleModal}>Add a New Student</a>
+                <a href="#" class="btn btn-primary" onClick={() => toggleModal()}>Add a New Student</a>
                 </div>
                 </div>
                  </div>

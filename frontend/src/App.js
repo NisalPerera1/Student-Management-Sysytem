@@ -3,7 +3,6 @@ import Home from './Components/Pages/home'
 import React from 'react';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
-import Login from './Components/Pages/login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import About from './Components/Pages/about';
 import Classes from './Components/Pages/classes';
@@ -17,9 +16,9 @@ function App() {
   return (
   <div>
     <div>
-    <h1></h1>
    <div>
-   <Router>
+    
+    <Router>
 			<Navbar/>
 			<Routes>
 				<Route path='/' exact element={<Home/>} />

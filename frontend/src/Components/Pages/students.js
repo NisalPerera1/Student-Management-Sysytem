@@ -1,87 +1,97 @@
-import React from "react";
-import Radio from '@mui/material/Button';
-import RadioGroup from '@mui/material/Button';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 
-  function Students(){
-    const[Students, setStudents]=useState(false);
-    const toggleModal=()=>{
-        setStudents(!Students);
-         };
+function FormButton() {
+  const [showForm, setShowForm] = useState(false);
+  const [name,setName]=useState("");
+  const [address,setAddress]=useState("");
+  const [age,setAge]=useState("");
+  const [gender,setGender]=useState("");
+  
 
-    if(Students){
-    document.body.classList.add('active-modal')
-            }
-    else{
-    document.body.classList.remove('active-modal')
-        }
+  function savetodb(e){
 
-return ( 
-          <>
-         <div> 
-          <h2 align="center">Here is Your Students' Details Upto Now</h2></div>
-          `   <div>
-            
-            <div id="Buton" >    
-        <Button style={{ position: 'relative', left:'750px', top: '10px', right: '20px'} } className="btn-Modal" variant="contained" onClick={toggleModal} class="btn btn-primary btn-lg"> Add New Student </Button>
-		<p></p>
-         </div>
-            </div>
-         
-      {Students && (
-<div className="Modal">
-<div onClick={toggleModal} className="overlay"></div>  
-  <div className="Modal-content">
-      <h2 align ="center"> Enter The Student's Credintials </h2>
-    <br></br>
+    e.preventDefault();
+    const newStudent={
+      name,
+      address,
+      age,
+      gender
+    }
+    //backend posting
+    axios.post("http://localhost:8070/Student/add/", newStudent).then(()=>{
+      alert("Student Saved in the Database")}
+    )
+  
+    .catch(()=>{
+      alert("Sorry !!!! Student Saved failed")
+    })
+  }
 
-<div class="d-flex justify-content-center">
-  <form>
-
-  <div class="form-group">
-      <label for="exampleInputEmail1">Name</label>
-      <input type="name" class="form-control" id="stname" placeholder="Enter Student's Name" />
-    </div>
+  const handleClick = () => {
+    setShowForm(!showForm);
+  };
+  
+  return (<div>
+    
+<Button style={{ position: 'relative', left:'750px', top: '10px', right: '20px'} } className="btn-Modal" variant="contained" onClick={handleClick} class="btn btn-primary btn-lg"> Add New Student </Button>
+  {showForm && (
+    <form class="container" onSubmit={savetodb}>
 
     <div class="form-group">
-      <label for="Adress">Address</label>
-      <input type="name" class="form-control" id="staddress" placeholder="Enter Student's Address" />
-    </div>
+        <label for="exampleInputEmail1">Name</label>
+        <input type="name" 
+        class="form-control" 
+        id="name" 
+        placeholder="Enter Student's Name" 
+        onChange={(e)=>{
+            setName(e.target.value);
+                      }
+                 }/></div>
 
-
-    <div class="form-group">
-      <label for="exampleInputEmail1">Age</label>
-      <input type="age" class="form-control" id="stage" placeholder="Enter Student's Age" size={100}/>
-    </div>
-
-    <div class="form-group">
-      <label for="exampleInputEmail1">Gender</label>
-      <div>
-
-      <input type="radio" justify="center" value="Male"/>Male</div>
-      <input type="radio" />Female</div>
-
-
-   
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
-
-
-
-
-
-
-
-
-      <></>
-          </div>
+      <div class="form-group">
+        <label for="Adress">Address</label>
+        <input type="name" 
+        class="form-control" 
+        id="address" 
+        placeholder="Enter Student's Address"
+        onChange={(e)=>{
+          setAddress(e.target.value);
+                    }
+               } />
+      </div>
+  
+  
+      <div class="form-group">
+        <label for="exampleInputEmail1">Age</label>
+        <input type="age" 
+        class="form-control" 
+        id="age" 
+        placeholder="Enter Student's Age" 
+        size={100}
+        onChange={(e)=>{
+          setAge(e.target.value);
+                    }
+               }/>
+      </div>
+  
+      <div class="form-group">
+        <label for="exampleInputEmail1">Gender</label>
+        <input type="age" 
+        class="form-control" 
+        id="gender" 
+        placeholder="Enter your Gender" 
+        size={100}
+        onChange={(e)=>{
+          setGender(e.target.value);
+                    }
+               }/>
+  
         </div>
-      )}
-
-   </>
-  );
-};
-   export default Students;
+      <button type="submit" class="btn btn-primary" >Submit</button>
+    </form>
+)}
+  </div>
+)}
+export default FormButton;

@@ -4,11 +4,13 @@ const Student = require("../Models/Student");
 //student adding
 router.route('/add').post((req,res)=>{
     const name =req.body.name;
+    const address =req.body.name;
     const age =req.body.age;
     const gender =req.body.gender;
  
     const NewStudent=new Student({
         name,
+        address,
         age,
         gender
     })
