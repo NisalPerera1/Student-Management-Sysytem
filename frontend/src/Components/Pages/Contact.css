@@ -9,6 +9,12 @@
     background-attachment: fixed;
     
 }
+.head{
+  font-weight: bold;
+  text-align: center;
+  color: rgb(0, 0, 0);
+
+}
 
 .contact-form{
     padding: 1 4rem 0 3rem;
@@ -18,7 +24,12 @@
       /* scroll */
   padding-top: 3rem;
 }
+.para{
+  color: rgb(0, 0, 0);
+text-align: center;
+font-weight: bold;
 
+}
 
 textarea{
     height: 4rem!important;
