@@ -9,11 +9,20 @@ const PORT = 8070;
 const studentRouter= require("./Routes/students.js");
 const student = require('./Models/Student');
 
+
+const paperRouter= require("./Routes/papers.js");
+const Papers = require('./Models/Papers');
+
+
+
+
+
 //app midleware
 app.use(bodyParser.json());
 app.use(cors());
 
 app.use("/student",studentRouter)
+app.use("/paper",paperRouter)
 
 const URL="mongodb+srv://NisalPerera2:Nisal12345@stumansys.bwxtcl1.mongodb.net/?retryWrites=true&w=majority"
 
