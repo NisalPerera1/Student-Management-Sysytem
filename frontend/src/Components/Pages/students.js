@@ -18,6 +18,7 @@ function FormButton() {
 
   //fetching function
   function getData() {
+    
     axios.get('http://localhost:8070/Student/')
       .then(response => {
         setShowStudent(response.data);
@@ -53,9 +54,9 @@ function FormButton() {
     setShowForm(!showForm);
   };
 
-  const handleData = () => {
-    setShowStudent(!ShowStudent);
-  };
+  const handleShowContent = () => {
+    setShowStudent([]);
+  }
 
 
 
@@ -63,29 +64,28 @@ function FormButton() {
   
   return (<div>
    
-      
 
-      
-      
-   
-<Button style={{right:"20px",left:"1523px"} } variant="contained" onClick={getData} class="btn btn-primary btn-lg"> Show Students </Button>
-<Button style={{ position: 'relative', left:'750px', top: '10px', right: '20px'} } className="btn-Modal" variant="contained" onClick={handleClick} class="btn btn-primary btn-lg"> Add New Student </Button>
+<Button color="primary" style={{position: 'relative',right:"200px",left:"523px", top: '10px'} } variant="contained" onClick={getData} > Show Students </Button>
+<Button style={{position: 'relative',right:"200px",left:"530px", top: '10px'} }variant="contained" onClick={handleShowContent} color="error">Hide Students</Button>
+
+<Button style={{ position: 'relative', left:'650px', top: '10px', right: '20px', backgroundColor: '#008000' } } className="btn-Modal" variant="contained" onClick={handleClick} color="primary"> Add New Student </Button>
    <div>
-{ShowStudent&& (
-        <ul>
-          {ShowStudent.map(item => (
-            <li key={item.id}>
-              {item.name}<br></br>
-              {item.age} <p1>Years Old</p1><br></br>
-              {item.gender}
+   {ShowStudent && (
+  <ul style={{ textAlign: 'center' , listStylePosition: 'inside'}}>
+    <br></br>
+    {ShowStudent.map(item => (
+      <li key={item.id}><h1 style={{ fontSize: '18px' }}>{item.name}<br></br></h1> 
+        {item.age} <p1>Years Old</p1><br></br>
+        {item.gender}<br></br>
+        <br></br>
+      </li>
+    ))}
+  </ul>
+  
 
-
-
-              </li>
-          ))}
-        </ul>
-      )}    </div> 
-
+  )}
+           
+           </div> 
 
   {showForm && (
     <form class="container" onSubmit={savetodb}>

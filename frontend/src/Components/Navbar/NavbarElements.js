@@ -4,9 +4,11 @@ import styled from 'styled-components';
 
 
 export const Nav = styled.nav`
-background: #3887;
+
+background: #4685;
 height: 85px;
 display: flex;
+margin: 0 10px;
 justify-content: space-between;
 padding: 0.2rem calc((100vw - 1000px) / 2);
 z-index: 12;
@@ -15,7 +17,7 @@ z-index: 12;
 `;
 
 export const NavLink = styled(Link)`
-color: #808080;
+color: #808081;
 display: flex;
 align-items: center;
 text-decoration: none;

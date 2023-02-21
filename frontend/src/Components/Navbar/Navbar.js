@@ -8,20 +8,16 @@ return (
 	<>
 	<Nav>
 		<Bars />
-
-
-
-
 		<NavMenu>
 		<NavLink to='/' activeStyle>
 			HOME
 		</NavLink>
 		<NavLink to='/classes' activeStyle>
-			YOUR CLASSES
+			CLASSES
+		</NavLink><NavLink to='/papers' activeStyle>
+			PAPERS
 		</NavLink>
-		<NavLink to='/feereports' activeStyle>
-			PAYMENTS
-		</NavLink>
+		
 		<NavLink to='/students' activeStyle>
 			STUDENTS
 		</NavLink>
@@ -32,9 +28,6 @@ return (
 			CONTACT ME
 		</NavLink>
 		
-		
-		{/* Second Nav */}
-		{/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
 		</NavMenu>
 		
 	</Nav>
